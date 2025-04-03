@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMA MAKATI</title>
+
+  <!-- font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- css -->
+  <link href="./asset/css/berita.css" rel="stylesheet">
+
+  <!-- icon web -->
+  <link rel="icon" type="image/x-icon" href="asset/image/logo.png">
+</head>
+<body>
+    
+    <!-- header navbar -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><img src="./asset/image/logo.png" alt=""><span>SMA MAKATI</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="fas fa-home"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="profil.html" class="nav__link">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Profil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="layanan.html" class="nav__link">
+                            <i class="fas fa-school"></i>
+                            <span>Program & Layanan</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="berita.html" class="nav__link">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Berita</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- toggle cta button -->
+            <div class="nav__tcta">
+                <!-- cta button -->
+                <div class="buttoncta">
+                    <button class="button-cta" id="openForm">
+                        <span>Hubungi Kami</span>
+                    </button>
+                </div>
+        
+                <!-- toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- end header navbar -->
+    
+    <!-- form hubungi kami -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeForm"><i class="fas fa-times"></i></span>
+            <form class="contact-form">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan Nama Anda" required>
+            
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+            
+                <label for="phone">No. Telepon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan No. Telepon Anda">
+            
+                <label for="subject">Subjek</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Pilih Subjek</option>
+                    <option value="pendaftaran">Pendaftaran</option>
+                    <option value="informasi">Informasi Sekolah</option>
+                    <option value="kerjasama">Kerja Sama</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Tulis Pesan Anda..." required></textarea>
+            
+                <button type="submit" class="submit-btn">Kirim</button>
+            </form>
+        </div>
+    </div>     
+    <!-- end form hubungi kami -->
+
+    <!-- chatbot -->
+    <div class="cb">
+        <div class="buttonschat">
+            <div class="buttonschatb">
+                <a class="buttonschatbot" href="#" data-tooltip="Chatbot" @click="toggleChatbot">
+                    <i class="fas fa-robot"></i>
+                </a>
+            </div>
+        </div>
+        <div class="chattbott">
+            <div class="chatbot">
+              <div class="chat-container">
+                  <div class="titlechatbot">
+                    <i class="fas fa-robot"></i>
+                    <span>Chatbot Makati</span>
+                  </div>
+                  <hr>
+                  <div id="chat-box" class="chat-box">
+                      <div class="chat-message bot">Ada yang bisa saya bantu?</div>
+                  </div>
+                  <div class="buttonn">
+                      <div class="input-text">
+                          <input type="text" id="user-input" placeholder="Ketik pesan anda disini...">
+                      </div>
+                      <div class="send-button">
+                          <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                      </div>
+                  </div>
+              </div>
+            </div>  
+        </div>
+    </div>
+    <!-- end chatbot -->
+
+    <!-- to top -->
+    <div class="totop" id="toTopBtn">
+        <div class="buttonstoto">
+            <a class="buttonstotop" href="#">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- end to top -->
+
+    <!-- blog -->
+    <section class="blog container">
+        <!-- atas -->
+        <div class="blog-top"> 
+
+            <div class="blog-left">
+                <div class="title">
+                    <h1>Sedang Hangat</h1>
+                    <hr>
+                </div>
+                <div class="blogg">
+                    <div class="blog-atas">
+                        <div class="berita">
+                            <img src="./asset/image/baskett.jpeg" alt="Tim Basket SMA Makati">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Senin, 25 Maret 2025</p>
+                                </div>
+                                <h4>Tim Basket SMA Makati Juara 1 Turnamen Nasional</h4>
+                                <p>Tim basket SMA Makati berhasil meraih Juara 1 dalam Turnamen Basket Nasional 2025 setelah mengalahkan lawan tangguh dari berbagai sekolah. Prestasi ini semakin mengukuhkan posisi SMA Makati sebagai sekolah dengan tim olahraga terbaik.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="blog-bawah">
+                        <div class="berita">
+                            <img src="./asset/image/liveon.jpeg" alt="Tim Jurnalistik SMA Makati">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Kamis, 7 Maret 2025</p>
+                                </div>
+                                <h4>Tim Jurnalistik SMA Makati Raih Penghargaan Karya Terbaik</h4>
+                                <p>Dalam ajang Lomba Karya Jurnalistik Pelajar 2025, tim jurnalistik SMA Makati memenangkan kategori Artikel Investigasi Terbaik. Karya mereka membahas isu pendidikan digital yang kini semakin berkembang.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                        
+                        <div class="berita">
+                            <img src="./asset/image/h2h.jpeg" alt="Tim Dance SMA Makati">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Minggu, 17 Maret 2025</p>
+                                </div>
+                                <h4>Tim Dance SMA Makati Juara 1 Festival Dance Modern</h4>
+                                <p>Tim dance SMA Makati tampil memukau dan meraih Juara 1 dalam Festival Dance Modern 2025. Dengan koreografi yang unik dan penuh semangat, mereka berhasil menarik perhatian para juri serta penonton.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-rightt">
+                <div class="title">
+                    <h1>Terbaru</h1>
+                    <hr>
+                </div>
+                <div class="blog-right">
+                    <div class="berita">
+                        <img src="./asset/image/renangg.jpeg" alt="Tim Renang SMA Makati">
+                        <div class="isiberita">
+                            <div class="dateberita">
+                                <i class="far fa-calendar"></i>
+                                <p>Sabtu, 30 Maret 2025</p>
+                            </div>
+                            <h4>Tim Renang SMA Makati Sabet 3 Medali Emas di Kejuaraan Nasional</h4>
+                            <p>Atlet renang SMA Makati kembali menunjukkan dominasinya di ajang Kejuaraan Renang Nasional 2025. Mereka berhasil membawa pulang 3 medali emas dalam nomor gaya bebas, gaya kupu-kupu, dan estafet.</p>
+                            <hr>
+                            <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                        </div>
+                    </div>
+                    
+                    <div class="berita">
+                        <img src="./asset/image/badmintonn.jpeg" alt="Tim Badminton SMA Makati">
+                        <div class="isiberita">
+                            <div class="dateberita">
+                                <i class="far fa-calendar"></i>
+                                <p>Senin, 1 April 2025</p>
+                            </div>
+                            <h4>Tim Badminton SMA Makati Juara Umum di Turnamen Antar Sekolah</h4>
+                            <p>Dengan performa luar biasa, tim badminton SMA Makati sukses menyabet gelar juara umum di Turnamen Badminton Antar Sekolah 2025 setelah mendominasi nomor tunggal dan ganda.</p>
+                            <hr>
+                            <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                        </div>
+                    </div>
+    
+                    <div class="berita">
+                        <img src="./asset/image/futsall.jpeg" alt="Tim Futsal SMA Makati">
+                        <div class="isiberita">
+                            <div class="dateberita">
+                                <i class="far fa-calendar"></i>
+                                <p>Kamis, 14 Maret 2025</p>
+                            </div>
+                            <h4>Tim Futsal SMA Makati Juara di Liga Futsal Pelajar</h4>
+                            <p>Setelah melalui pertandingan sengit, tim futsal SMA Makati berhasil keluar sebagai juara dalam Liga Futsal Pelajar 2025. Kemenangan ini mengukuhkan posisi mereka sebagai salah satu tim terkuat di tingkat sekolah menengah.</p>
+                            <hr>
+                            <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                        </div>
+                    </div>  
+                </div>
+                
+            </div>
+
+        </div>
+        <!-- bawah -->
+        <div class="blog-bottom">
+            <div class="title">
+                <h1>Berita Lainnya</h1>
+                <hr>
+            </div>
+            <div class="bl">
+
+                <div id="page-1" class="blogs-content">
+                    <div class="blogs">
+                        <div class="berita">
+                            <img src="./asset/image/banjangdas.jpeg" alt="Alumni SMA Makati di Oxford">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Senin, 18 Maret 2025</p>
+                                </div>
+                                <h4>Siswa SMA Makati Lolos ke Oxford University</h4>
+                                <p>Selamat kepada Yua, salah satu siswa SMA Makati yang diterima di University of Oxford. Ia akan menempuh pendidikan di bidang Hukum dengan beasiswa prestasi.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+            
+                        <div class="berita">
+                            <img src="./asset/image/yohansanny.jpeg" alt="">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Jumat, 22 Maret 2025</p>
+                                </div>
+                                <h4>Dua Siswa SMA Makati Juara 1 Lomba Karya Ilmiah Nasional</h4>
+                                <p>Prestasi membanggakan diraih oleh dua siswa SMA Makati, Yohan dan Sanny, yang berhasil meraih Juara 1 dalam Lomba Karya Ilmiah Nasional 2025. Mereka meneliti inovasi energi terbarukan yang berpotensi mengurangi polusi udara.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                        
+                        <div class="berita">
+                            <img src="./asset/image/yasmine.jpeg" alt="Siswa SMA Makati Lolos Pertukaran Pelajar ke Jepang">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Rabu, 20 Maret 2025</p>
+                                </div>
+                                <h4>Siswa SMA Makati Lolos Program Pertukaran Pelajar ke Jepang</h4>
+                                <p>Salah satu siswa terbaik SMA Makati, Yasmine, terpilih untuk mengikuti program pertukaran pelajar ke Jepang. Selama satu semester, ia akan belajar di Tokyo dan memperdalam budaya serta sistem pendidikan Jepang.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-2" class="blogs-content">
+                    <div class="blogs">
+                        <div class="berita">
+                            <img src="./asset/image/teatherr.jpeg" alt="Tim Teater SMA Makati">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Minggu, 10 Maret 2025</p>
+                                </div>
+                                <h4>Tim Teater SMA Makati Raih Penghargaan di Festival Drama Nasional</h4>
+                                <p>Penampilan spektakuler tim teater SMA Makati dalam Festival Drama Nasional 2025 berhasil membawa mereka meraih penghargaan "Pementasan Terbaik". Keunikan alur cerita dan akting para siswa mendapat pujian dari juri.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                        
+                        <div class="berita">
+                            <img src="./asset/image/band.jpeg" alt="Band SMA Makati">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Jumat, 15 Maret 2025</p>
+                                </div>
+                                <h4>Band SMA Makati Menangkan Lomba Musik Antar Sekolah</h4>
+                                <p>Band sekolah SMA Makati tampil gemilang dan berhasil meraih Juara 1 dalam Lomba Musik Antar Sekolah 2025. Dengan aransemen unik dan penampilan penuh energi, mereka sukses mencuri perhatian para juri dan penonton.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                        
+                        <div class="berita">
+                            <img src="./asset/image/taekwondoo.jpeg" alt="Tim Taekwondo SMA Makati">
+                            <div class="isiberita">
+                                <div class="dateberita">
+                                    <i class="far fa-calendar"></i>
+                                    <p>Sabtu, 23 Maret 2025</p>
+                                </div>
+                                <h4>Atlet Taekwondo SMA Makati Raih Medali Emas di Kejuaraan Nasional</h4>
+                                <p>Dengan kerja keras dan latihan intensif, atlet taekwondo SMA Makati berhasil meraih medali emas di Kejuaraan Taekwondo Nasional 2025. Prestasi ini menjadi bukti bahwa SMA Makati selalu melahirkan atlet berprestasi.</p>
+                                <hr>
+                                <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="blogs-btn">
+        <button class="button-blogs active" onclick="showContent('1')">1</button>
+        <button class="button-blogs" onclick="showContent('2')">2</button>
+        <button class="button-blogss">...</button>
+        
+    </div>
+    </section>
+    <!-- end blog -->
+    
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-body container">
+
+            <div class="footer-logo">
+                <div class="footerlogo">
+                    <img src="./asset/image/logo.png" alt="Logo SMA Makati">
+                </div>
+                <div class="subfooterlogo">
+                    <h1>SMA MAKATI</h1>
+                    <span>Unggul, Berprestasi, Berkarakter</span>
+                </div>
+            </div>
+    
+            <div class="footer-navigasi">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="profil.html"><i class="fas fa-user-graduate"></i> Profil</a></li>
+                    <li><a href="layanan.html"><i class="fas fa-school"></i> Program & Layanan</a></li>
+                    <li><a href="berita.html"><i class="fas fa-newspaper"></i> Berita</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Unud No. 20, Jimbaran, Bali</p>
+                <p><i class="fas fa-envelope"></i> smamakati@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +12 345 678 90</p>
+            </div>
+
+        </div>
+        
+        <div class="container">
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-instagram"></i></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul>
+        </div>
+
+        <hr>
+    
+        <div class="footer-bottom">
+            <p>© 2025 SMA MAKATI • All Rights Reserved</p>
+        </div>
+    </footer>    
+    <!-- end footer -->
+    
+    <script src="./asset/js/berita.js"></script>
+</body>
+</html>

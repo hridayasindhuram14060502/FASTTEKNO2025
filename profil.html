@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMA MAKATI</title>
+
+  <!-- font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- css -->
+  <link href="./asset/css/profil.css" rel="stylesheet">
+
+  <!-- icon web -->
+  <link rel="icon" type="image/x-icon" href="asset/image/logo.png">
+</head>
+<body>
+    
+    <!-- header navbar -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><img src="./asset/image/logo.png" alt=""><span>SMA MAKATI</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="fas fa-home"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="profil.html" class="nav__link">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Profil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="layanan.html" class="nav__link">
+                            <i class="fas fa-school"></i>
+                            <span>Program & Layanan</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="berita.html" class="nav__link">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Berita</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- toggle cta button -->
+            <div class="nav__tcta">
+                <!-- cta button -->
+                <div class="buttoncta">
+                    <button class="button-cta" id="openForm">
+                        <span>Hubungi Kami</span>
+                    </button>
+                </div>
+        
+                <!-- toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- end header navbar -->
+    
+    <!-- form hubungi kami -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeForm"><i class="fas fa-times"></i></span>
+            <form class="contact-form">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan Nama Anda" required>
+            
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+            
+                <label for="phone">No. Telepon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan No. Telepon Anda">
+            
+                <label for="subject">Subjek</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Pilih Subjek</option>
+                    <option value="pendaftaran">Pendaftaran</option>
+                    <option value="informasi">Informasi Sekolah</option>
+                    <option value="kerjasama">Kerja Sama</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Tulis Pesan Anda..." required></textarea>
+            
+                <button type="submit" class="submit-btn">Kirim</button>
+            </form>
+        </div>
+    </div>     
+    <!-- end form hubungi kami -->
+
+    <!-- chatbot -->
+    <div class="cb">
+        <div class="buttonschat">
+            <div class="buttonschatb">
+                <a class="buttonschatbot" href="#" data-tooltip="Chatbot" @click="toggleChatbot">
+                    <i class="fas fa-robot"></i>
+                </a>
+            </div>
+        </div>
+        <div class="chattbott">
+            <div class="chatbot">
+              <div class="chat-container">
+                  <div class="titlechatbot">
+                    <i class="fas fa-robot"></i>
+                    <span>Chatbot Makati</span>
+                  </div>
+                  <hr>
+                  <div id="chat-box" class="chat-box">
+                      <div class="chat-message bot">Ada yang bisa saya bantu?</div>
+                  </div>
+                  <div class="buttonn">
+                      <div class="input-text">
+                          <input type="text" id="user-input" placeholder="Ketik pesan anda disini...">
+                      </div>
+                      <div class="send-button">
+                          <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                      </div>
+                  </div>
+              </div>
+            </div>  
+        </div>
+    </div>
+    <!-- end chatbot -->
+
+    <!-- to top -->
+    <div class="totop" id="toTopBtn">
+        <div class="buttonstoto">
+            <a class="buttonstotop" href="#">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- end to top -->
+    
+    <!-- profil opening -->
+    <section class="profil container">
+        <div class="descprofil">
+            <div class="profil-btn">
+                <button class="button-profil" onclick="showContent('visi')">Visi</button>
+                <button class="button-profil" onclick="showContent('misi')">Misi</button>
+                <button class="button-profil" onclick="showContent('sejarah')">Sejarah</button>
+            </div>
+
+            <div id="visi" class="content-profil">
+                <hr>
+                <h3>Menjadi sekolah unggulan yang mencetak generasi berkarakter, berprestasi, dan berdaya saing global melalui pendidikan berkualitas dan berbasis teknologi.</h3>
+                <hr>
+                <h3>
+                    FYI! SMA Makati merupakan salah satu sekolah yang memiliki jumlah siswa terbanyak lolos program pertukaran pelajar internasional di Indonesia! Tentu saja, dengan mitra sekolah dari berbagai negara, program ini membuka wawasan dan memperkaya pengalaman akademik serta budaya siswa.</h3>
+                <hr>
+            </div>
+
+            <div id="misi" class="content-profil">
+                <hr>
+                <div class="misi">
+                    <span class="number">1</span>
+                    <p>Menerapkan metode pembelajaran inovatif yang berbasis teknologi dan penelitian ilmiah.</p>
+                </div>
+                <hr>
+                <div class="misi">
+                    <span class="number">2</span>
+                    <p>Membangun lingkungan sekolah yang inklusif, disiplin, dan inspiratif bagi seluruh peserta didik.</p>
+                </div>
+                <hr>
+                <div class="misi">
+                    <span class="number">3</span>
+                    <p>Mengembangkan kerja sama dengan berbagai institusi nasional dan internasional dalam bidang pendidikan dan pengembangan sumber daya manusia.</p>
+                </div>
+                <hr>
+                <div class="misi">
+                    <span class="number">4</span>
+                    <p>Mengoptimalkan potensi peserta didik dalam bidang akademik, seni, olahraga, dan kewirausahaan.</p>
+                </div>
+                <hr>
+            </div>
+        
+            <div id="sejarah" class="content-profil sejarah">
+                <hr>
+                <p>SMA Makati didirikan pada tahun 2005 dengan tujuan menjadi pusat pendidikan unggulan yang berorientasi pada pembentukan karakter dan kompetensi siswa dalam menghadapi tantangan global. Berawal dari sebuah sekolah kecil dengan hanya 100 siswa dan 10 tenaga pengajar, SMA Makati kini telah berkembang menjadi salah satu institusi pendidikan terkemuka di daerahnya.</p>
+                <p>Sejak awal berdirinya, sekolah ini selalu mengedepankan inovasi dalam pembelajaran dengan menerapkan sistem pendidikan berbasis teknologi serta pendekatan pembelajaran aktif. Seiring dengan berkembangnya zaman, SMA Makati telah meraih berbagai prestasi akademik maupun non-akademik di tingkat nasional dan internasional. Dengan semangat untuk terus maju, SMA Makati terus berkomitmen untuk memberikan pendidikan terbaik dan mencetak lulusan yang siap bersaing di dunia global.</p>
+            </div>
+        </div>
+        
+        <div class="imgprofil">
+            <img src="./asset/image/bgprofil.png" alt="">
+        </div>
+    </section>
+    <!-- end profil opening -->
+
+    <!-- svg -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: rgb(240, 240, 240); stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #ffffff; stop-opacity: 1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#grad1)" fill-opacity="1"
+          d="M0,160L40,165.3C80,171,160,181,240,176C320,171,400,149,480,154.7C560,160,640,192,720,202.7C800,213,880,203,960,197.3C1040,192,1120,192,1200,176C1280,160,1360,128,1400,112L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
+    <!-- end svg -->
+
+    <!-- teacher -->
+    <section class="teacherr">
+        <section class="teacher container">
+        <div class="title">
+            <h1>Manajemen Guru SMA Makati</h1>
+        </div>
+
+        <div class="body-teacher">
+
+            <div class="guruu">
+                <div class="guru guruleft">
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher9.png" alt="Adrian Setiawan Tan">
+                    </div>
+
+                    <div class="titleguru titleleft">
+                        <h4 class="nama-guru">Adrian Setiawan Tan</h4>
+                        <hr>
+                        <h5 class="mapel">Kepala Sekolah</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru gururight">
+                    <div class="titleguru titleright">
+                        <h4 class="nama-guru">Felicia Zhang, M.Ed.</h4>
+                        <hr>
+                        <h5 class="mapel">Wakil Kepala Sekolah Bidang Kurikulum</h5>
+                    </div>
+
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher2.png" alt="Adrian Setiawan Tan">
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru guruleft">
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher3.png" alt="Adrian Setiawan Tan">
+                    </div>
+
+                    <div class="titleguru titleleft">
+                        <h4 class="nama-guru">William Chandra, M.Pd.</h4>
+                        <hr>
+                        <h5 class="mapel">Wakil Kepala Sekolah Bidang Kesiswaan</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru gururight">
+                    <div class="titleguru titleright">
+                        <h4 class="nama-guru">Kevin Hendra Lim, M.Sc.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Matematika</h5>
+                    </div>
+
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher4.png" alt="Adrian Setiawan Tan">
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru guruleft">
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher5.png" alt="Adrian Setiawan Tan">
+                    </div>
+
+                    <div class="titleguru titleleft">
+                        <h4 class="nama-guru">Lydia Mei Susanto, M.Sc.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Fisika</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru gururight">
+                    <div class="titleguru titleright">
+                        <h4 class="nama-guru">Stephanie Lau Roos, M.Pd.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Bahasa Inggris</h5>
+                    </div>
+
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher6.png" alt="Adrian Setiawan Tan">
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru guruleft">
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher10.png" alt="Adrian Setiawan Tan">
+                    </div>
+
+                    <div class="titleguru titleleft">
+                        <h4 class="nama-guru">Angela Yeo Hartanto, S.Pd.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Bahasa Mandarin</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru gururight">
+                    <div class="titleguru titleright">
+                        <h4 class="nama-guru">Vincent Lee Pratama, M.Hum.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Sejarah</h5>
+                    </div>
+
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher8.png" alt="Adrian Setiawan Tan">
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru guruleft">
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher1.png" alt="Adrian Setiawan Tan">
+                    </div>
+
+                    <div class="titleguru titleleft">
+                        <h4 class="nama-guru">Michelle Han Santoso, M.Pd.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Biologi</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guruu">
+                <div class="guru gururight">
+                    <div class="titleguru titleright">
+                        <h4 class="nama-guru">Daniel Koh Surya, M.Kom.</h4>
+                        <hr>
+                        <h5 class="mapel">Guru Teknologi Informasi</h5>
+                    </div>
+
+                    <div class="imgguru">
+                        <img src="./asset/image/teacher7.png" alt="Adrian Setiawan Tan">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        </section>
+    </section>
+    <!-- end teacher -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-body container">
+
+            <div class="footer-logo">
+                <div class="footerlogo">
+                    <img src="./asset/image/logo.png" alt="Logo SMA Makati">
+                </div>
+                <div class="subfooterlogo">
+                    <h1>SMA MAKATI</h1>
+                    <span>Unggul, Berprestasi, Berkarakter</span>
+                </div>
+            </div>
+    
+            <div class="footer-navigasi">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="profil.html"><i class="fas fa-user-graduate"></i> Profil</a></li>
+                    <li><a href="layanan.html"><i class="fas fa-school"></i> Program & Layanan</a></li>
+                    <li><a href="berita.html"><i class="fas fa-newspaper"></i> Berita</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Unud No. 20, Jimbaran, Bali</p>
+                <p><i class="fas fa-envelope"></i> smamakati@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +12 345 678 90</p>
+            </div>
+
+        </div>
+        
+        <div class="container">
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-instagram"></i></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul>
+        </div>
+
+        <hr>
+    
+        <div class="footer-bottom">
+            <p>© 2025 SMA MAKATI • All Rights Reserved</p>
+        </div>
+    </footer>    
+    <!-- end footer -->
+    
+    <script src="./asset/js/profil.js"></script>
+</body>
+</html>

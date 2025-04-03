@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMA MAKATI</title>
+
+  <!-- font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- css -->
+  <link href="./asset/css/style.css" rel="stylesheet">
+
+  <!-- icon web -->
+  <link rel="icon" type="image/x-icon" href="asset/image/logo.png">
+</head>
+<body>
+    
+    <!-- header navbar -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><img src="./asset/image/logo.png" alt=""><span>SMA MAKATI</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="fas fa-home"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="profil.html" class="nav__link">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Profil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="layanan.html" class="nav__link">
+                            <i class="fas fa-school"></i>
+                            <span>Program & Layanan</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="berita.html" class="nav__link">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Berita</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- toggle cta button -->
+            <div class="nav__tcta">
+                <!-- cta button -->
+                <div class="buttoncta">
+                    <button class="button-cta" id="openForm">
+                        <span>Hubungi Kami</span>
+                    </button>
+                </div>
+        
+                <!-- toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- end header navbar -->
+    
+    <!-- form hubungi kami -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeForm"><i class="fas fa-times"></i></span>
+            <form class="contact-form">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan Nama Anda" required>
+            
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+            
+                <label for="phone">No. Telepon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan No. Telepon Anda">
+            
+                <label for="subject">Subjek</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Pilih Subjek</option>
+                    <option value="pendaftaran">Pendaftaran</option>
+                    <option value="informasi">Informasi Sekolah</option>
+                    <option value="kerjasama">Kerja Sama</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Tulis Pesan Anda..." required></textarea>
+            
+                <button type="submit" class="submit-btn">Kirim</button>
+            </form>
+        </div>
+    </div>     
+    <!-- end form hubungi kami -->
+
+    <!-- chatbot -->
+    <div class="cb">
+        <div class="buttonschat">
+            <div class="buttonschatb">
+                <a class="buttonschatbot" href="#" data-tooltip="Chatbot" @click="toggleChatbot">
+                    <i class="fas fa-robot"></i>
+                </a>
+            </div>
+        </div>
+        <div class="chattbott">
+            <div class="chatbot">
+              <div class="chat-container">
+                  <div class="titlechatbot">
+                    <i class="fas fa-robot"></i>
+                    <span>Chatbot Makati</span>
+                  </div>
+                  <hr>
+                  <div id="chat-box" class="chat-box">
+                      <div class="chat-message bot">Ada yang bisa saya bantu?</div>
+                  </div>
+                  <div class="buttonn">
+                      <div class="input-text">
+                          <input type="text" id="user-input" placeholder="Ketik pesan anda disini...">
+                      </div>
+                      <div class="send-button">
+                          <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                      </div>
+                  </div>
+              </div>
+            </div>  
+        </div>
+    </div>
+    <!-- end chatbot -->
+
+    <!-- to top -->
+    <div class="totop" id="toTopBtn">
+        <div class="buttonstoto">
+            <a class="buttonstotop" href="#">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- end to top -->
+
+    <!-- section home -->
+    <section class="home">
+        <div class="background-image"></div>
+
+        <div class="home-content container">
+
+            <div class="teks">
+                <div class="center-content">
+                    <h1 class="main-heading">
+                        Mencari Sekolah 
+                        <span class="animate-text">
+                            <span>Unggul?</span>
+                            <span>Berkarakter?</span>
+                            <span>Berprestasi?</span>
+                        </span> 
+                    </h1>
+                    <h2 class="sub-heading">Yuk Bergabung di <span>SMA Makati!</span></h2>
+                    <!-- <p class="description">
+                        SMA Makati merupakan sekolah swasta unggulan terakreditasi A dan berdedikasi dalam menyediakan pendidikan berkualitas dengan standar nasional dan internasional. Dengan tenaga pendidik profesional, kurikulum berbasis teknologi, serta lingkungan yang kondusif, kami siap mengantarkan siswa menuju masa depan yang cerah
+                    </p> -->
+                    <div class="action-buttons">
+                        <a href="profil.html" class="btn btn-action">Lihat Profil</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="img">
+                <img src="./asset/image/modelhome.png" alt="">
+            </div>
+        </div>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill-opacity="1"
+              d="M0,160L40,165.3C80,171,160,181,240,176C320,171,400,149,480,154.7C560,160,640,192,720,202.7C800,213,880,203,960,197.3C1040,192,1120,192,1200,176C1280,160,1360,128,1400,112L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+            </path>
+        </svg> -->
+    </section>    
+    <!-- section home end -->
+
+    <!-- layanan -->
+    <section class="layanan container">
+        <!-- title layanan -->
+        <div class="section__title">
+            <div class="section_title_main">
+                <h3>Program dan Layanan</h3>
+                <h1>Jurusan, Ekstrakurikuler, Fasilitas</h1>
+            </div>
+    
+            <div class="section_title_sub">
+                <p>
+                    Pilih jurusan yang sesuai, gabung ekskul favorit, dan rasakan fasilitas keren yang jarang ada di sekolah lain!
+                </p>
+            </div>
+        </div>
+        <!-- body layanan -->
+        <div class="section_body_layanan">
+
+            <!-- buttons layanan -->
+            <div class="layanan-btn">
+                <div class="btn-layanan-3">
+                    <button class="button-layanan" onclick="showContent('jurusan')">Jurusan</button>
+                    <button class="button-layanan" onclick="showContent('ekstrakurikuler')">Ekstrakurikuler</button>
+                    <button class="button-layanan" onclick="showContent('fasilitas')">Fasilitas</button>
+                </div>
+                <div class="btn-layanan-m">
+                    <a href="layanan.html" class="btn-layanan-more">Lihat Selengkapnya</a>
+                </div>
+            </div>
+        
+            <!-- content layanan tab switching -->
+            <div id="jurusan" class="content-layanan">
+                <span>Jurusan yang tersedia di SMA Makati</span>
+                <div class="sub-content-layanan">
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/ipa.png" alt="">
+                        <div class="isi-layanan">
+                            <span>IPA</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/ips.png" alt="">
+                        <div class="isi-layanan">
+                            <span>IPS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="ekstrakurikuler" class="content-layanan">
+                <span>Ekstrakurikuler Unggulan SMA Makati</span>
+                <div class="sub-content-layanan">
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/dance.png" alt="">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Dance</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/basket.png" alt="">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Basket</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/jurnalistik.png" alt="">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Jurnalistik</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/taekwondo.png" alt="">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Taekwondo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="fasilitas" class="content-layanan">
+                <span>Fasilitas Favorit Siswa SMA Makati</span>
+                <div class="sub-content-layanan">
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/perpustakaan.png" alt="Perpustakaan">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Perpustakaan</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/lap-olga.png" alt="Gedung Olahraga">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Gedung Olahraga</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/auditorium.png" alt="Auditorium">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Auditorium</span>
+                        </div>
+                    </div>
+                    <div class="sub-content-layanann">
+                        <img src="./asset/image/rooftop.png" alt="Rooftop">
+                        <a href="layanan.html" class="overlay">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <div class="isi-layanan">
+                            <span>Rooftop</span>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        
+        </div>
+
+    </section>
+    <!-- end layanan -->
+
+    <!-- why us -->
+    <section class="why-us container">
+        <div class="section__title">
+            <div class="section_title_main">
+                <h3>Mengapa Kami?</h3>
+                <h1>Rasakan Perbedaannya</h1>
+            </div>
+        
+            <div class="section_title_sub">
+                <p>
+                    Membentuk generasi unggul dengan kurikulum inovatif, ekstrakurikuler pengembang bakat, dan fasilitas modern yang mendukung prestasi.
+                </p>
+            </div>
+        </div>        
+    
+        <div class="why-us-wrapper">
+            <div class="why-us-content">
+              <div class="why-us-image">
+                <img src="./asset/image/1.png" alt="">
+              </div>
+              <div class="why-us-text">
+                <h3>Kurikulum Berstandar Internasional</h3>
+                <p>Kami mengadaptasi kurikulum modern yang berstandar internasional, memastikan setiap siswa mendapatkan pendidikan terbaik yang relevan dengan kebutuhan global.</p>
+              </div>
+    
+              <div class="timeline__point"></div>
+            </div>
+    
+            <div class="why-us-content">
+              <div class="why-us-text">
+                <h3>Ekstrakurikuler Beragam & Berkualitas</h3>
+                <p>Dari olahraga hingga seni dan teknologi, kami menawarkan berbagai ekstrakurikuler unggulan yang tidak hanya mengasah bakat, tetapi juga membentuk karakter dan keterampilan sosial siswa.
+                </p>
+              </div>
+              <div class="why-us-image">
+                <img src="./asset/image/2.png" alt="">
+              </div>
+    
+              <div class="timeline__point"></div>
+            </div>
+    
+            <div class="why-us-content">
+              <div class="why-us-image">
+                <img src="./asset/image/3.png" alt="">
+              </div>
+              <div class="why-us-text">
+                <h3>Fasilitas Modern & Lengkap</h3>
+                <p>Kami menyediakan ruang kelas nyaman, laboratorium berteknologi tinggi, perpustakaan digital, serta area olahraga lengkap untuk mendukung pengalaman belajar yang menyenangkan dan efektif.</p>
+              </div>
+    
+              <div class="timeline__point"></div>
+            </div>
+    
+            <div class="why-us-content">
+              <div class="why-us-text">
+                <h3>Tenaga Pendidik Profesional & Berpengalaman</h3>
+                <p>Didukung oleh guru-guru berpengalaman dan bersertifikasi, SMA Makati siap membimbing siswa dengan pendekatan yang inovatif dan inspiratif.</p>
+              </div>
+              <div class="why-us-image">
+                <img src="./asset/image/4.png" alt="">
+              </div>
+    
+              <div class="timeline__point"></div>
+            </div>
+    
+            <div class="timeline"></div>
+    
+        </div>
+    </section>
+    <!-- end why us -->
+
+    <!-- faq -->
+    <section class="faqs container">
+        <div class="section__title">
+            <div class="section_title_main">
+                <h3>Pertanyaan Umum</h3>
+                <h1>Apa yang Sering Ditanyakan?</h1>
+            </div>
+        
+            <div class="section_title_sub">
+                <p>
+                    Berikut merupakan jawaban - jawaban dari beberapa pertanyaan yang sering diajukan
+                </p>
+            </div>
+        </div>
+
+        <div class="faq__wrapper">
+
+            <div class="faq__content">
+                <div class="faq__title">
+                  <h4>Apakah ada program beasiswa di SMA Makati?</h4>
+    
+                  <button class="faq-button" data-faq="3"><i class="fas fa-plus"></i></button>
+                </div>
+    
+                <div class="faq__answer answer-3">
+                  <p>Ya, kami menyediakan beasiswa akademik dan non-akademik untuk siswa berprestasi serta program bantuan pendidikan bagi siswa yang membutuhkan.</p>
+                </div>
+            </div>
+  
+            <div class="faq__content">
+              <div class="faq__title">
+                <h4>Apakah ada program pertukaran pelajar?</h4>
+  
+                <button class="faq-button" data-faq="2"><i class="fas fa-plus"></i></button>
+              </div>
+  
+              <div class="faq__answer answer-2">
+                <p>Ya! SMA Makati memiliki kerja sama dengan sekolah internasional dan menawarkan program pertukaran pelajar ke beberapa negara, memberikan pengalaman belajar global bagi siswa. </p>
+              </div>
+            </div>
+
+            <div class="faq__content">
+                <div class="faq__title">
+                  <h4>Apakah SMA Makati memiliki program bimbingan karier?</h4>
+    
+                  <button class="faq-button" data-faq="1"><i class="fas fa-plus"></i></button>
+                </div>
+    
+                <div class="faq__answer answer-1">
+                  <p>Ya, kami menyediakan bimbingan karier dan persiapan masuk universitas, termasuk konsultasi jurusan, workshop, serta kemitraan dengan berbagai perguruan tinggi ternama.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- end faq -->
+
+    <!-- maps -->
+    <section class="maps">
+        <div class="map container">
+            <div class="section__title">
+                <div class="section_title_main">
+                    <h3>Lokasi Kami</h3>
+                    <h1>Temukan Kami dengan Mudah</h1>
+                </div>
+            
+                <div class="section_title_sub">
+                    <p>
+                        Lihat lokasi sekolah kami melalui google maps dan temukan rute terbaik untuk sampai ke sini.
+                    </p>
+                </div>
+            </div>
+    
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12981.084409646104!2d115.170174198336!3d-8.787236351913986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24522d38bc181%3A0x2b7a93761cba8439!2sSMKTI%20Bali%20Global%20Jimbaran!5e0!3m2!1sen!2sid!4v1743328678856!5m2!1sen!2sid"></iframe>
+        </div>
+    </section>        
+    <!-- end maps -->
+
+    <!-- blog -->
+    <section class="blog container">
+        <div class="section__title">
+            <div class="section_title_main">
+                <h3>Berita Terkini</h3>
+                <h1>Kabar Terbaru dari SMA Makati</h1>
+            </div>
+        
+            <!-- <div class="section_title_sub">
+                <p>
+                    Dapatkan informasi terbaru seputar kegiatan, prestasi, dan berita menarik dari SMA Makati.
+                </p>
+            </div> -->
+        </div>
+        
+        <div class="blogs">
+
+            <div class="berita">
+                <img src="./asset/image/baskett.jpeg" alt="Tim Basket SMA Makati">
+                <div class="isiberita">
+                    <div class="dateberita">
+                        <i class="far fa-calendar"></i>
+                        <p>Senin, 25 Maret 2025</p>
+                    </div>
+                    <h4>Tim Basket SMA Makati Juara 1 Turnamen Nasional</h4>
+                    <p>Tim basket SMA Makati berhasil meraih Juara 1 dalam Turnamen Basket Nasional 2025 setelah mengalahkan lawan tangguh dari berbagai sekolah. Prestasi ini semakin mengukuhkan posisi SMA Makati sebagai sekolah dengan tim olahraga terbaik.</p>
+                    <hr>
+                    <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                </div>
+            </div>
+            
+            <div class="berita">
+                <img src="./asset/image/liveon.jpeg" alt="Tim Jurnalistik SMA Makati">
+                <div class="isiberita">
+                    <div class="dateberita">
+                        <i class="far fa-calendar"></i>
+                        <p>Kamis, 7 Maret 2025</p>
+                    </div>
+                    <h4>Tim Jurnalistik SMA Makati Raih Penghargaan Karya Terbaik</h4>
+                    <p>Dalam ajang Lomba Karya Jurnalistik Pelajar 2025, tim jurnalistik SMA Makati memenangkan kategori Artikel Investigasi Terbaik. Karya mereka membahas isu pendidikan digital yang kini semakin berkembang.</p>
+                    <hr>
+                    <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                </div>
+            </div>
+            
+            <div class="berita">
+                <img src="./asset/image/h2h.jpeg" alt="Tim Dance SMA Makati">
+                <div class="isiberita">
+                    <div class="dateberita">
+                        <i class="far fa-calendar"></i>
+                        <p>Minggu, 17 Maret 2025</p>
+                    </div>
+                    <h4>Tim Dance SMA Makati Juara 1 Festival Dance Modern</h4>
+                    <p>Tim dance SMA Makati tampil memukau dan meraih Juara 1 dalam Festival Dance Modern 2025. Dengan koreografi yang unik dan penuh semangat, mereka berhasil menarik perhatian para juri serta penonton.</p>
+                    <hr>
+                    <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                </div>
+            </div>
+
+            <div class="berita">
+                <img src="./asset/image/banjangdas.jpeg" alt="Alumni SMA Makati di Oxford">
+                <div class="isiberita">
+                    <div class="dateberita">
+                        <i class="far fa-calendar"></i>
+                        <p>Senin, 18 Maret 2025</p>
+                    </div>
+                    <h4>Siswa SMA Makati Lolos ke Oxford University</h4>
+                    <p>Selamat kepada Yua, salah satu siswa SMA Makati yang diterima di University of Oxford. Ia akan menempuh pendidikan di bidang Hukum dengan beasiswa prestasi.</p>
+                    <hr>
+                    <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                </div>
+            </div>
+
+            <div class="berita">
+                <img src="./asset/image/yohansanny.jpeg" alt="">
+                <div class="isiberita">
+                    <div class="dateberita">
+                        <i class="far fa-calendar"></i>
+                        <p>Jumat, 22 Maret 2025</p>
+                    </div>
+                    <h4>Dua Siswa SMA Makati Juara 1 Lomba Karya Ilmiah Nasional</h4>
+                    <p>Prestasi membanggakan diraih oleh dua siswa SMA Makati, Yohan dan Sanny, yang berhasil meraih Juara 1 dalam Lomba Karya Ilmiah Nasional 2025. Mereka meneliti inovasi energi terbarukan yang berpotensi mengurangi polusi udara.</p>
+                    <hr>
+                    <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                </div>
+            </div>
+            
+            <div class="berita">
+                <img src="./asset/image/yasmine.jpeg" alt="Siswa SMA Makati Lolos Pertukaran Pelajar ke Jepang">
+                <div class="isiberita">
+                    <div class="dateberita">
+                        <i class="far fa-calendar"></i>
+                        <p>Rabu, 20 Maret 2025</p>
+                    </div>
+                    <h4>Siswa SMA Makati Lolos Program Pertukaran Pelajar ke Jepang</h4>
+                    <p>Salah satu siswa terbaik SMA Makati, Yasmine, terpilih untuk mengikuti program pertukaran pelajar ke Jepang. Selama satu semester, ia akan belajar di Tokyo dan memperdalam budaya serta sistem pendidikan Jepang.</p>
+                    <hr>
+                    <a href="basket.html">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a> 
+                </div>
+            </div>            
+            
+        </div>
+
+        <div class="btn-blogsmore">
+            <a href="berita.html" class="btn-action">Lihat Selengkapnya</a>
+        </div>
+    </section>
+    <!-- end blog -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-body container">
+
+            <div class="footer-logo">
+                <div class="footerlogo">
+                    <img src="./asset/image/logo.png" alt="Logo SMA Makati">
+                </div>
+                <div class="subfooterlogo">
+                    <h1>SMA MAKATI</h1>
+                    <span>Unggul, Berprestasi, Berkarakter</span>
+                </div>
+            </div>
+    
+            <div class="footer-navigasi">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="profil.html"><i class="fas fa-user-graduate"></i> Profil</a></li>
+                    <li><a href="layanan.html"><i class="fas fa-school"></i> Program & Layanan</a></li>
+                    <li><a href="berita.html"><i class="fas fa-newspaper"></i> Berita</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Unud No. 20, Jimbaran, Bali</p>
+                <p><i class="fas fa-envelope"></i> smamakati@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +12 345 678 90</p>
+            </div>
+
+        </div>
+        
+        <div class="container">
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-instagram"></i></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul>
+        </div>
+
+        <hr>
+    
+        <div class="footer-bottom">
+            <p>© 2025 SMA MAKATI • All Rights Reserved</p>
+        </div>
+    </footer>    
+    <!-- end footer -->
+    
+    <script src="./asset/js/main.js"></script>
+</body>
+</html>

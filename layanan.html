@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMA MAKATI</title>
+
+  <!-- font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- css -->
+  <link href="./asset/css/layanan.css" rel="stylesheet">
+
+  <!-- icon web -->
+  <link rel="icon" type="image/x-icon" href="asset/image/logo.png">
+</head>
+<body>
+    
+    <!-- header navbar -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><img src="./asset/image/logo.png" alt=""><span>SMA MAKATI</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="fas fa-home"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="profil.html" class="nav__link">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Profil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="layanan.html" class="nav__link">
+                            <i class="fas fa-school"></i>
+                            <span>Program & Layanan</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="berita.html" class="nav__link">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Berita</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- toggle cta button -->
+            <div class="nav__tcta">
+                <!-- cta button -->
+                <div class="buttoncta">
+                    <button class="button-cta" id="openForm">
+                        <span>Hubungi Kami</span>
+                    </button>
+                </div>
+        
+                <!-- toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- end header navbar -->
+    
+    <!-- form hubungi kami -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeForm"><i class="fas fa-times"></i></span>
+            <form class="contact-form">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan Nama Anda" required>
+            
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+            
+                <label for="phone">No. Telepon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan No. Telepon Anda">
+            
+                <label for="subject">Subjek</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Pilih Subjek</option>
+                    <option value="pendaftaran">Pendaftaran</option>
+                    <option value="informasi">Informasi Sekolah</option>
+                    <option value="kerjasama">Kerja Sama</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Tulis Pesan Anda..." required></textarea>
+            
+                <button type="submit" class="submit-btn">Kirim</button>
+            </form>
+        </div>
+    </div>     
+    <!-- end form hubungi kami -->
+
+    <!-- chatbot -->
+    <div class="cb">
+        <div class="buttonschat">
+            <div class="buttonschatb">
+                <a class="buttonschatbot" href="#" data-tooltip="Chatbot" @click="toggleChatbot">
+                    <i class="fas fa-robot"></i>
+                </a>
+            </div>
+        </div>
+        <div class="chattbott">
+            <div class="chatbot">
+              <div class="chat-container">
+                  <div class="titlechatbot">
+                    <i class="fas fa-robot"></i>
+                    <span>Chatbot Makati</span>
+                  </div>
+                  <hr>
+                  <div id="chat-box" class="chat-box">
+                      <div class="chat-message bot">Ada yang bisa saya bantu?</div>
+                  </div>
+                  <div class="buttonn">
+                      <div class="input-text">
+                          <input type="text" id="user-input" placeholder="Ketik pesan anda disini...">
+                      </div>
+                      <div class="send-button">
+                          <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                      </div>
+                  </div>
+              </div>
+            </div>  
+        </div>
+    </div>
+    <!-- end chatbot -->
+
+    <!-- to top -->
+    <div class="totop" id="toTopBtn">
+        <div class="buttonstoto">
+            <a class="buttonstotop" href="#">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- end to top -->
+
+    <!-- ekstrakurikuler -->
+    <section class="ekstrakurikuler container">
+        <div class="ekstrakurikuler-btn">
+            <button class="button-ekstrakurikuler" onclick="showContent('dance')">Dance</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('basket')">Basket</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('jurnalistik')">Jurnalistik</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('taekwondo')">Taekwondo</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('futsal')">Futsal</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('badminton')">Badminton</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('renang')">Renang</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('teather')">Teather</button>
+            <button class="button-ekstrakurikuler" onclick="showContent('musik')">Musik</button>
+        </div>
+        <hr>
+
+        <!-- dance -->
+        <div id="dance" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/dancely.png" alt="">
+                <div class="ekstradesc">
+                    <p>Ekstrakurikuler Dance di SMA Makati adalah wadah bagi siswa yang ingin menyalurkan kreativitas melalui gerakan dan ekspresi tubuh. Dari hip-hop, modern dance, hingga tarian tradisional, kami menawarkan berbagai teknik dan gaya yang dapat memperkaya keterampilan menari setiap anggota. Dengan bimbingan pelatih profesional, setiap latihan dirancang untuk meningkatkan fleksibilitas, koordinasi, serta ekspresi artistik para anggota. Melalui sesi latihan yang intensif dan menyenangkan, siswa juga mengembangkan kemampuan improvisasi dan memahami berbagai elemen tari untuk menciptakan pertunjukan yang memukau.</p>
+                    <p>Tim Dance SMA Makati tidak hanya tampil di berbagai acara sekolah, tetapi juga aktif berkompetisi dalam ajang tari tingkat kota, provinsi, hingga nasional. Banyak anggota kami telah berhasil membawa pulang penghargaan dan tampil di festival seni. Selain itu, ekstrakurikuler ini membuka kesempatan bagi siswa untuk belajar koreografi dan menciptakan gerakan unik mereka sendiri. Dengan suasana latihan yang penuh semangat dan dukungan dari teman-teman dengan passion yang sama, Dance SMA Makati menjadi tempat yang tepat untuk berkembang sebagai penari.</p>
+                    <p>Bagi banyak alumni, ekstrakurikuler ini telah menjadi batu loncatan menuju dunia seni tari profesional, baik sebagai penari, koreografer, maupun pengajar. Dengan disiplin latihan yang terjadwal dan semangat kebersamaan yang erat, dance bukan sekadar menari, tetapi juga membangun rasa percaya diri dan kerja sama tim. Jika kamu ingin mengekspresikan dirimu dengan penuh kebebasan di atas panggung, maka jangan ragu untuk bergabung! Bersiaplah untuk bergerak, berkreasi, dan bersinar bersama Dance SMA Makati!</p>
+                </div>
+            </div>
+        </div>
+        <!-- basket -->
+        <div id="basket" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/basketly.png" alt="">
+                <div class="ekstradesc">
+                    <p>Lapangan basket SMA Makati selalu dipenuhi semangat juang para pemain yang berlatih dengan penuh dedikasi. Ekstrakurikuler ini tidak hanya mengajarkan teknik dasar seperti dribbling, shooting, dan defense, tetapi juga membangun strategi permainan yang solid. Dengan bimbingan pelatih berpengalaman, para anggota akan menjalani latihan fisik ketat guna meningkatkan stamina, kekuatan fisik, serta koordinasi tim. Setiap sesi latihan dirancang agar pemain memahami teknik dasar, membaca permainan, serta menerapkan strategi bertahan yang efektif di lapangan.</p>
+                    <p>Tim Basket SMA Makati dikenal sebagai salah satu yang terbaik di tingkat sekolah menengah dan telah menorehkan banyak prestasi di berbagai turnamen bergengsi. Kami rutin berpartisipasi dalam kompetisi lokal hingga nasional, membuktikan bahwa semangat dan kerja keras dapat membawa tim menuju kemenangan. Dengan filosofi "No Pain, No Gain", kami menanamkan bahwa kerja keras, disiplin, dan semangat pantang menyerah adalah kunci utama menjadi atlet basket sukses. Selain itu, kebersamaan dalam tim menjadi nilai penting agar para pemain bisa saling mendukung satu sama lain.</p>
+                    <p>Bagi kamu yang ingin serius meniti karier dalam dunia basket atau sekadar meningkatkan kemampuan bermain, ekstrakurikuler ini adalah tempat yang tepat. Dengan fasilitas lengkap dan dukungan dari pelatih serta rekan setim yang solid, kamu akan memiliki kesempatan untuk berkembang secara maksimal. Apakah kamu pemula atau pemain berpengalaman, kami menyambut semua dengan tangan terbuka. Siap membawa tim menuju kemenangan? Ayo turun ke lapangan dan tunjukkan skill terbaikmu bersama Tim Basket SMA Makati!</p>
+                </div>
+            </div>
+        </div>
+        <!-- jurnalistik -->
+        <div id="jurnalistik" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/jurnalistikly.png" alt="">
+                <div class="ekstradesc">
+                    <p>Apakah kamu suka menulis, menggali fakta, dan berburu berita? Ekstrakurikuler Jurnalistik di SMA Makati membuka peluang bagi siswa yang ingin mengembangkan keterampilan jurnalistik mereka. Dari menulis berita, melakukan wawancara, hingga memotret dan mengedit artikel, semua aspek jurnalistik diajarkan oleh mentor berpengalaman. Kami juga membekali anggota dengan teknik penulisan yang baik agar mereka mampu menghasilkan konten informatif dan menarik.</p>
+                    <p>Anggota jurnalistik bertanggung jawab dalam menerbitkan majalah sekolah serta mengelola media sosial SMA Makati. Setiap minggu, mereka menyusun berita terbaru tentang kegiatan sekolah, profil siswa berprestasi, hingga tren terkini yang relevan bagi komunitas pelajar. Selain itu, anggota jurnalistik juga memiliki kesempatan untuk menghadiri seminar jurnalistik, mengikuti pelatihan dengan profesional media, serta berkolaborasi dengan media lokal untuk memperluas wawasan dan pengalaman mereka di dunia jurnalistik.</p>
+                    <p>Dengan lingkungan yang mendukung kreativitas, berpikir kritis, serta keberanian dalam menyuarakan opini, ekstrakurikuler ini siap mencetak calon jurnalis hebat masa depan. Selain mengasah keterampilan menulis, jurnalistik juga mengajarkan tanggung jawab dan etika dalam menyampaikan informasi. Bagi kamu yang ingin menjadi suara bagi generasi muda dan berkontribusi dalam dunia media, ini adalah tempat yang tepat untuk mengembangkan bakatmu. Yuk, bergabung dan jadilah bagian dari tim Jurnalistik SMA Makati!</p>
+                </div>
+            </div>
+        </div>
+        <!-- taekwondo -->
+        <div id="taekwondo" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/taekwondoly.png" alt="">
+                <div class="ekstradesc">
+                    <p>Taekwondo di SMA Makati bukan hanya tentang belajar bela diri, tetapi juga membangun disiplin, mental yang kuat, serta semangat sportivitas. Latihan rutin mencakup teknik tendangan, pukulan, hingga strategi pertahanan diri yang efektif. Di bawah bimbingan pelatih bersertifikat, setiap anggota akan diajarkan nilai-nilai seperti ketekunan, hormat, dan keberanian dalam menghadapi tantangan. Setiap sesi latihan dirancang untuk meningkatkan keseimbangan, kelincahan, serta fokus dalam menghadapi lawan di arena.</p>
+                    <p>Tim Taekwondo SMA Makati telah memenangkan berbagai kejuaraan di tingkat regional hingga nasional, membuktikan bahwa dedikasi dan latihan keras akan membawa hasil yang membanggakan. Latihan yang disiplin dan terstruktur akan membantu meningkatkan kekuatan fisik, refleks cepat, serta ketahanan mental. Selain itu, taekwondo juga melatih kesabaran dan kendali diri, nilai-nilai yang sangat berguna dalam kehidupan sehari-hari.</p>
+                    <p>Jika kamu ingin mengasah kemampuan bela diri sambil menorehkan prestasi, ekstrakurikuler ini adalah pilihan yang tepat. Selain mempelajari teknik bertarung, kamu juga akan mendapatkan pengalaman bertanding dan mengikuti ujian kenaikan sabuk untuk meningkatkan level keterampilanmu. Bergabunglah dengan kami dan raih sabuk hitammu bersama Taekwondo SMA Makati! Dengan latihan yang tekun, semangat pantang menyerah, serta lingkungan yang mendukung, kamu akan menjadi lebih kuat, percaya diri, dan siap menghadapi segala tantangan di masa depan!</p>
+                </div>
+            </div>
+        </div>
+        <!-- futsal -->
+        <div id="futsal" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/futsal.png" alt="">
+                <div class="ekstradesc">
+                    <p>Kecepatan, strategi, dan kekompakan adalah kunci utama dalam futsal, dan SMA Makati memiliki tim yang selalu siap berlaga! Ekstrakurikuler ini memberikan pelatihan intensif bagi siswa yang ingin mengembangkan keterampilan bermain futsal, mulai dari teknik passing, shooting, hingga strategi bertahan yang efektif. Setiap latihan dirancang untuk meningkatkan kelincahan, daya tahan, serta pemahaman taktik permainan.</p>
+                    <p>Tim Futsal SMA Makati telah mengikuti berbagai turnamen dan berhasil membawa pulang banyak piala. Dengan dukungan pelatih profesional yang berpengalaman, setiap anggota tim dilatih untuk memiliki fisik yang prima serta kemampuan membaca permainan dengan baik. Selain itu, kami menanamkan nilai-nilai sportivitas dan kerja sama tim agar setiap pemain dapat berkembang secara maksimal.</p>
+                    <p>Apakah kamu seorang striker tajam, playmaker cerdas, atau kiper tangguh? Bergabunglah dan buktikan kemampuanmu di lapangan! Dengan semangat kompetitif yang tinggi dan latihan yang konsisten, futsal SMA Makati siap melahirkan atlet-atlet berbakat. Ayo kenakan sepatu futsalmu, masuk ke lapangan, dan jadilah bagian dari tim juara!</p>
+                </div>
+            </div>
+        </div>
+        <!-- badminton -->
+        <div id="badminton" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/badminton.png" alt="">
+                <div class="ekstradesc">
+                    <p>Ekstrakurikuler Badminton di SMA Makati adalah tempat yang tepat bagi siswa yang ingin mengasah keterampilan bulu tangkis mereka, baik yang baru mulai maupun yang sudah berpengalaman. Kami menawarkan pelatihan intensif dengan fokus pada pengembangan teknik dasar seperti service, forehand, backhand, hingga smashes yang lebih canggih. Selain itu, latihan juga difokuskan pada kelincahan, daya tahan tubuh, dan strategi bertanding yang efektif untuk menghadapi lawan.</p>
+                    <p>Dengan bimbingan pelatih profesional, tim Badminton SMA Makati telah meraih banyak prestasi di turnamen lokal dan nasional. Di sini, setiap siswa dilatih untuk menguasai teknik bermain, membangun ketahanan tubuh, serta menerapkan strategi permainan yang jitu. Lebih dari itu, pelatihan ini juga mengajarkan pentingnya kedisiplinan, kerja keras, dan semangat pantang menyerah yang akan membantu para siswa berkembang bukan hanya di lapangan, tetapi juga dalam kehidupan sehari-hari.</p>
+                    <p>Ekstrakurikuler Badminton di SMA Makati menawarkan pengalaman yang tidak hanya memperbaiki keterampilan bermain, tetapi juga membangun mental yang kuat. Jika kamu tertarik untuk mengasah kemampuan bulu tangkis dan berprestasi, ayo bergabung bersama kami. Di sini, kamu akan belajar untuk menjadi pemain yang lebih baik, siap menghadapi tantangan dan meraih kemenangan!</p>
+                </div>
+            </div>
+        </div>
+        <!-- renang -->
+        <div id="renang" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/renang.png" alt="">
+                <div class="ekstradesc">
+                    <p>Ekstrakurikuler Renang di SMA Makati memberikan pelatihan intensif untuk berbagai gaya renang, seperti gaya bebas, dada, punggung, dan kupu-kupu, yang diajarkan dengan teknik yang benar dan sesuai standar. Pelatih berpengalaman kami akan membimbing siswa untuk menguasai setiap gaya dengan tepat, meningkatkan kecepatan, serta memperbaiki teknik pernafasan dan daya tahan tubuh. Latihan juga mencakup peningkatan kekuatan dan kelincahan, yang sangat penting dalam olahraga air ini.</p>
+                    <p>Tim Renang SMA Makati telah meraih banyak prestasi dalam kompetisi tingkat kota, provinsi, hingga nasional. Setiap anggota tim diberikan pelatihan yang terstruktur untuk meningkatkan teknik dan fisik mereka, serta mempersiapkan mereka untuk bertanding di tingkat yang lebih tinggi. Selain keterampilan renang itu sendiri, ekstrakurikuler ini mengajarkan nilai-nilai seperti kedisiplinan, ketekunan, dan fokus mental, yang merupakan kunci untuk mencapai keberhasilan.</p>
+                    <p>Ekstrakurikuler Renang di SMA Makati adalah tempat yang ideal untuk meningkatkan kemampuan renang dan meraih prestasi. Jika kamu ingin mengasah keterampilan renangmu atau berkompetisi di ajang bergengsi, gabung bersama kami! Dapatkan pengalaman berharga, manfaatkan fasilitas terbaik, dan jadilah bagian dari tim renang yang selalu siap menaklukkan tantangan.</p>
+                </div>
+            </div>
+        </div>
+        <!-- teather -->
+        <div id="teather" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/teather.png" alt="">
+                <div class="ekstradesc">
+                    <p>Ekstrakurikuler Teater di SMA Makati adalah tempat bagi siswa yang ingin mengembangkan kemampuan seni peran mereka. Di sini, kamu akan belajar berbagai aspek teater, mulai dari akting, penyutradaraan, hingga menulis naskah. Dengan bimbingan pelatih berpengalaman, anggota teater akan diajarkan untuk menguasai teknik dasar akting, ekspresi wajah, dan gerakan tubuh yang penting dalam sebuah pertunjukan. Tidak hanya itu, kamu juga akan belajar bagaimana bekerja sama dengan tim untuk menciptakan pementasan yang memukau.</p>
+                    <p>SMA Makati telah sukses menampilkan berbagai pertunjukan di acara sekolah dan festival seni, yang dihasilkan dari latihan intensif dan semangat kebersamaan. Ekstrakurikuler ini mengajarkan pentingnya kerjasama tim, kreativitas, dan kemampuan untuk berkomunikasi secara efektif di atas panggung. Setiap anggota juga diberikan kesempatan untuk berpartisipasi dalam pembuatan naskah dan mendalami berbagai peran yang bisa mengembangkan potensi mereka dalam dunia seni peran.</p>
+                    <p>Ekstrakurikuler Teater di SMA Makati bukan hanya tentang tampil di atas panggung, tetapi juga tentang membangun rasa percaya diri, ketekunan, dan kemampuan berkolaborasi dengan orang lain. Jika kamu ingin mengasah kemampuan seni peranmu dan merasakan sensasi tampil di panggung, ayo bergabung dengan kami! Bersama kami, kamu akan menemukan potensi terbaikmu dalam dunia teater!</p>
+                </div>
+            </div>
+        </div>
+        <!-- music -->
+        <div id="musik" class="content-ekstrakurikuler">
+            <div class="ekstra">
+                <img src="./asset/image/music.png" alt="">
+                <div class="ekstradesc">
+                    <p>Ekstrakurikuler Musik/Band di SMA Makati adalah wadah bagi siswa yang memiliki passion dalam musik dan ingin mengembangkan kemampuan mereka bermain alat musik, bernyanyi, maupun berkarya dalam bentuk musik. Baik itu gitar, drum, keyboard, atau vokal, kami menyediakan pelatihan yang menyeluruh agar setiap anggota tim dapat mengeksplorasi dan mengasah kemampuan mereka dalam bermusik. Kamu juga akan belajar untuk bekerja dalam kelompok untuk menciptakan harmoni dan komposisi yang luar biasa.</p>
+                    <p>Tim Musik/Band SMA Makati sering tampil di berbagai acara sekolah dan lomba musik, membawa pulang banyak prestasi. Selain teknik bermain, kamu juga akan belajar komposisi lagu, produksi musik, serta teknik perekaman yang penting dalam dunia musik profesional. Dengan pelatihan dari musisi berpengalaman, kamu akan mendapatkan pengalaman yang sangat berharga dalam dunia industri musik, baik sebagai musisi maupun sebagai bagian dari tim kreatif.</p>
+                    <p>Bergabung dengan ekstrakurikuler Musik/Band di SMA Makati akan memberi kesempatan untuk mengembangkan bakat musikalmu dan merasakan sensasi tampil di panggung. Apakah kamu siap untuk mengguncang dunia musik bersama kami? Bergabunglah dan tunjukkan kemampuan musik terbaikmu di atas panggung!</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- end ekstrakurikuler -->
+
+    <!-- svg -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: rgb(240, 240, 240); stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #ffffff; stop-opacity: 1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#grad1)" fill-opacity="1"
+          d="M0,160L40,165.3C80,171,160,181,240,176C320,171,400,149,480,154.7C560,160,640,192,720,202.7C800,213,880,203,960,197.3C1040,192,1120,192,1200,176C1280,160,1360,128,1400,112L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
+    <!-- end svg -->
+
+    <!-- fasilitas -->
+    <section class="fasilitas container">
+        <div class="title">
+            <h1>Fasilitas SMA Makati</h1>
+        </div>
+
+        <div class="imgfasilitas">
+            <div class="fasilitas-img">
+                <img src="./asset/image/6.png" alt="">
+                <span>Perpustakaan</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/7.png" alt="">
+                <span>Gedung Olahraga</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/8.png" alt="">
+                <span>Auditorium</span>
+            </div>
+        </div>
+
+        <div class="imgfasilitas">
+            <div class="fasilitas-img">
+                <img src="./asset/image/9.png" alt="">
+                <span>Rooftop</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/10.png" alt="">
+                <span>Laboratorium IPA</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/11.png" alt="">
+                <span>UKS</span>
+            </div>
+        </div>
+
+        <div class="imgfasilitas">
+            <div class="fasilitas-img">
+                <img src="./asset/image/12.png" alt="">
+                <span>Ruang Music</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/13.png" alt="">
+                <span>Ruang Kelas</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/14.png" alt="">
+                <span>Laboratorium Komputer</span>
+            </div>
+        </div>
+
+        <div class="imgfasilitas">
+            <div class="fasilitas-img">
+                <img src="./asset/image/15.png" alt="">
+                <span>Kantin</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/16.png" alt="">
+                <span>Ruang Podcast</span>
+            </div>
+            <div class="fasilitas-img">
+                <img src="./asset/image/17.png" alt="">
+                <span>Toilet</span>
+            </div>
+        </div>
+
+    </section>
+    <!-- end fasilitas -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-body container">
+
+            <div class="footer-logo">
+                <div class="footerlogo">
+                    <img src="./asset/image/logo.png" alt="Logo SMA Makati">
+                </div>
+                <div class="subfooterlogo">
+                    <h1>SMA MAKATI</h1>
+                    <span>Unggul, Berprestasi, Berkarakter</span>
+                </div>
+            </div>
+    
+            <div class="footer-navigasi">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="profil.html"><i class="fas fa-user-graduate"></i> Profil</a></li>
+                    <li><a href="layanan.html"><i class="fas fa-school"></i> Program & Layanan</a></li>
+                    <li><a href="berita.html"><i class="fas fa-newspaper"></i> Berita</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Unud No. 20, Jimbaran, Bali</p>
+                <p><i class="fas fa-envelope"></i> smamakati@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +12 345 678 90</p>
+            </div>
+
+        </div>
+        
+        <div class="container">
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-instagram"></i></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul>
+        </div>
+
+        <hr>
+    
+        <div class="footer-bottom">
+            <p>© 2025 SMA MAKATI • All Rights Reserved</p>
+        </div>
+    </footer>
+    <!-- end footer -->
+    
+    <script src="./asset/js/layanan.js"></script>
+</body>
+</html>
